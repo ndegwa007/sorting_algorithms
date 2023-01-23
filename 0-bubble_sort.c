@@ -4,12 +4,15 @@
  * bubble_sort - sort an array
  * @array: array that gets sorted
  * @size: size of the @array
+ *
+ * Return: nothing
  */
 
 
 void bubble_sort(int *array, size_t size)
 {
-	size_t i, j, temp;
+	size_t i, j;
+	int temp;
 
 	for (i = 0; i < size; i++)
 	{
