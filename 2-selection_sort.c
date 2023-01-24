@@ -1,21 +1,6 @@
 #include "sort.h"
 
 /**
- * swappy - swaps integers
- * @x: first integer
- * @y: second integer
- *
- * Return: nothing
- */
-
-void swappy(int *x, int *y)
-{
-	int temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
-/**
  * selection_sort - sorts integers in ascending order
  * @array: array of integers
  * @size: size of the array
@@ -25,7 +10,7 @@ void swappy(int *x, int *y)
 
 void selection_sort(int *array, size_t size)
 {
-	size_t i, j, min_idx;
+	size_t i, j, min_idx, tmp;
 
 	for (i = 0; i < size - 1; i++)
 	{
@@ -37,7 +22,11 @@ void selection_sort(int *array, size_t size)
 				min_idx = j;
 			}
 		}
-		swappy(&array[min_idx], &array[i]);
-		print_array(array, size);
+		tmp = array[i];
+		array[i] = array[min_idx];
+		array[min_idx] = tmp;
+
+		if (min_idx != i)
+			print_array(array, size);
 	}
 }
